@@ -19,7 +19,7 @@ import {
   StructuredListCell,
   StructuredListHead,
   StructuredListRow,
-  StructuredListSkeleton,
+  // StructuredListSkeleton,
   StructuredListWrapper
 } from 'carbon-components-react';
 import { Link } from 'react-router-dom';
@@ -84,7 +84,8 @@ export /* istanbul ignore next */ class ResourceListContainer extends Component 
     const { error, loading, resources } = this.state;
 
     if (loading) {
-      return <StructuredListSkeleton border />;
+      console.log('loading');
+      // return <StructuredListSkeleton border />;
     }
 
     if (error) {

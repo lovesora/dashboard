@@ -15,8 +15,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
-  InlineNotification,
-  StructuredListSkeleton
+  InlineNotification
+  // StructuredListSkeleton
 } from 'carbon-components-react';
 import {
   Log,
@@ -148,9 +148,9 @@ export /* istanbul ignore next */ class TaskRunContainer extends Component {
     const { loading, selectedStepId } = this.state;
     const { error } = this.props;
 
-    if (loading) {
-      return <StructuredListSkeleton border />;
-    }
+    // if (loading) {
+    //   return <StructuredListSkeleton border />;
+    // }
 
     if (error) {
       return TaskRunContainer.notification({

@@ -36,14 +36,14 @@ class RunHeader extends Component {
         data-reason={reason}
       >
         {(() => {
-          if (loading) {
-            return (
-              <SkeletonPlaceholder
-                className="header-skeleton"
-                data-testid="loading"
-              />
-            );
-          }
+          // if (loading) {
+          //   return (
+          //     <SkeletonPlaceholder
+          //       className="header-skeleton"
+          //       data-testid="loading"
+          //     />
+          //   );
+          // }
           return (
             runName && (
               <>

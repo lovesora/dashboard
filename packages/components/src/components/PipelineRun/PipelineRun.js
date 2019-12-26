@@ -155,9 +155,9 @@ export /* istanbul ignore next */ class PipelineRunContainer extends Component {
 
     const { selectedStepId, selectedTaskId } = this.state;
 
-    if (loading) {
-      return <StructuredListSkeleton border />;
-    }
+    // if (loading) {
+    //   return <StructuredListSkeleton border />;
+    // }
 
     if (error) {
       return (

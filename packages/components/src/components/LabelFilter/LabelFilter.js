@@ -47,24 +47,25 @@ class LabelFilter extends Component {
     const { intl } = this.props;
     const { currentFilterValue } = this.state;
     const filterRegex = '([a-z0-9A-Z-_./]:[a-z0-9A-Z-_.],?)+';
-    const filterValue = currentFilterValue.replace(/\s/g, '');
+    let filterValue = currentFilterValue.replace(/\s/g, '');
     if (!filterValue.match(filterRegex)) {
-      this.setState({
-        isValid: false,
-        filterMessage: intl.formatMessage({
-          id: 'dashboard.labelFilter.invalid',
-          defaultMessage:
-            'Filters must be of the format labelKey:labelValue and contain accepted label characters'
-        }),
-        url:
-          'https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set',
-        urlMessage: intl.formatMessage({
-          id: 'dashboard.labelFilter.syntaxMessage',
-          defaultMessage:
-            'See the Kubernetes Label documentation for valid syntax'
-        })
-      });
-      return;
+      // this.setState({
+      //   isValid: false,
+      //   filterMessage: intl.formatMessage({
+      //     id: 'dashboard.labelFilter.invalid',
+      //     defaultMessage:
+      //       'Filters must be of the format labelKey:labelValue and contain accepted label characters'
+      //   }),
+      //   url:
+      //     'https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set',
+      //   urlMessage: intl.formatMessage({
+      //     id: 'dashboard.labelFilter.syntaxMessage',
+      //     defaultMessage:
+      //       'See the Kubernetes Label documentation for valid syntax'
+      //   })
+      // });
+      // return;
+      filterValue = `prow.k8s.io/refs.repo:${filterValue}`;
     }
     const currentFilterRequest = filterValue.split(':');
     if (currentFilterRequest[1].length > 63) {
@@ -136,7 +137,8 @@ class LabelFilter extends Component {
 
     const searchDescription = intl.formatMessage({
       id: 'dashboard.labelFilter.searchPlaceholder',
-      defaultMessage: 'Input a label filter of the format labelKey:labelValue'
+      defaultMessage:
+        'Input a repo name or a label, eg: home-ui, labelKey:labelValue'
     });
 
     return (

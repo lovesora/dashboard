@@ -104,13 +104,7 @@ const Table = props => {
                 </TableToolbarContent>
               </TableToolbar>
             )}
-            {loading ? (
-              <DataTableSkeleton
-                useZebraStyles
-                rowCount={1}
-                columnCount={headers.length}
-              />
-            ) : (
+            {
               <CarbonTable {...getTableProps()}>
                 <TableHead>
                   <TableRow>
@@ -160,7 +154,7 @@ const Table = props => {
                   })}
                 </TableBody>
               </CarbonTable>
-            )}
+            }
           </TableContainer>
         )}
       />
